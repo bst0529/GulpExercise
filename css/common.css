@@ -1,0 +1,35 @@
+dt {
+    display: inline-block;
+    background: #ddd;
+    border: 1px solid #333;
+    padding: 5px 10px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+dd {
+    margin-top: 5px;
+}
+
+img {
+    display: block;
+}
+
+ul,
+ul li {
+    list-style-type: none;
+}
+
+ul.float li {
+    float: left;
+    margin-left: 10px;
+}
+
+ul.float::after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    height: 0;
+    line-height: 0;
+    clear: both;
+}

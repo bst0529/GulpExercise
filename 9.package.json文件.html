@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="accordion" id="accordionFathor">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        一、node_modules資料夾的問題
+              </button>
+                </h2>
+            </div>
+
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionFathor">
+                <div class="card-body">
+                    <div class="alert alert-info">
+                        1.資料夾以及檔過多過碎，當我們將專案整體拷貝給別人的時候,，傳送速率會很慢很慢.
+                    </div>
+                    <div class="alert alert-danger">僅需package.json文件，而不用node_modules資料夾</div>
+                    <div class="alert alert-info">
+                        2.複雜的模組依賴關係需要被記錄，確保模組的版本和當前保持一致，否則會導致當前項目運行報錯
+                    </div>
+                    <div class="alert alert-danger">
+                        使用<span class="text-danger font-weight-bolder">package-lock.json</span>文件來應用此問題
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    二、package.json檔的作用
+              </button>
+                </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionFathor">
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="alert alert-primary">使用<span class="text-danger font-weight-bolder">npm init -y</span>命令生成。<span class="text-primary font-weight-bolder">-y</span>指的是使用默認值</div>
+                            <h5 class="card-title">默認創建的package.json文件
+                            </h5>
+                        </div>
+                        <img src="img/53.png" alt="" width="80%">
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">package.json文件屬性說明
+                            </h5>
+                        </div>
+                        <img src="img/54.png" alt="" width="80%">
+                    </div>
+                    <hr>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">1.安裝formidable與mime並查看package.json
+                            </h5>
+                        </div>
+                        <img src="img/55.png" alt="" width="50%">
+                        <img src="img/56.png" alt="" width="50%">
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">2.刪除node_modules資料夾
+                            </h5>
+                        </div>
+                        <img src="img/57.png" alt="" width="20%">
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">3.執行<span class="text-danger">npm install</span>
+                            </h5>
+                            <p class="card-text">將依據package.json中的dependencies，把第三方模塊重新下載至node_modules資料夾中</p>
+                        </div>
+                        <img src="img/58.png" alt="" width="20%">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        三、項目依賴
+              </button>
+                </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionFathor">
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="alert alert-primary">在專案的開發階段和線上運營階段，都需要依賴的協力廠商包，稱為專案依賴</div>
+                            <div class="alert alert-primary">使用npm install 包名命令下載的文件會默認被添加到 package.json 文件的 dependencies 欄位中</div>
+                            <div class="alert alert-danger">刪除node_modules資料夾後執行<span class="text-danger">npm install <span class="font-weight-bolder">--production</span></span>，只會將<span class="text-danger">dependencies</span>的第三方模塊重新下載至node_modules</div>
+                        </div>
+                        <img src="img/61.png" alt="" width="40%">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingFour">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                四、開發依賴
+              </button>
+                </h2>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionFathor">
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="alert alert-primary">在專案的開發階段需要依賴，線上運營階段不需要依賴的協力廠商包，稱為開發依賴
+                            </div>
+                            <div class="alert alert-primary">使用<span class="text-denger font-weight-bolder">npm install</span class="font-weight-bolder">包名<span class="text-denger font-weight-bolder">--save-dev</span>命令將包添加到package.json文件的<span class="text-denger">devDependencies</span>欄位中
+                            </div>
+                            <div class="alert alert-danger">刪除node_modules資料夾後執行<span class="text-danger font-weight-bolder"> npm install</span>，會將<span class="text-danger font-weight-bolder">dependencies</span>與<span class="text-danger font-weight-bolder">devDependencies</span>的第三方模塊皆重新下載至node_modules</div>
+                        </div>
+                        <img src="img/59.png" alt="" width="60%">
+                        <img src="img/60.png" alt="" width="40%">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingFive">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                五、package-lock.json文件
+              </button>
+                </h2>
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionFathor">
+                <div class="card-body">
+                    <div class="alert alert-primary">鎖定包的版本，確保再次下載時不會因為包版本不同而產生問題</div>
+                    <div class="alert alert-primary">加快下載速度，因為該檔中已經記錄了專案所依賴協力廠商包的樹狀結構和包的下載位址，重新安裝時只需下載即可，不需要做額外的工作</div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingSix">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                六、別名的用法
+              </button>
+                </h2>
+            </div>
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionFathor">
+                <div class="card-body">
+                    <div class="alert alert-primary">1.創立app.js文件</div>
+                    <img src="img/63.png" alt="" width="30%">
+                    <div class="alert alert-primary mt-4">2.package.json的scripts屬性內加入別名與指令</div>
+                    <img src="img/62.png" alt="" width="30%">
+                    <div class="alert alert-danger mt-4">執行<span class="text-danger font-weight-bolder">npm run build</span>指令</div>
+                    <img src="img/64.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
