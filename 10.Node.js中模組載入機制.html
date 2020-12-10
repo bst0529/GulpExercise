@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js中模組載入機制</title>
+    <link rel="stylesheet" href="css/10.css">
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./js/10.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="topic topic-btn" id="section-part1">一、模組查找規則-當模組擁有路徑但沒有尾碼時</div>
+        <div class="box-content no-see section-part1">
+            <div class="topic">一、模組查找規則-當模組擁有路徑但沒有尾碼時</div>
+            <div class="sample">
+                <div class="sample-item">require('./find.js')</div>
+                <div class="sample-item">require('./search')</div>
+            </div>
+            <div class="list">
+                <div class="list-item">
+                    <div class="list-item-descript">1. require方法根據模組路徑查找模組，如果是完整路徑，直接引入模組。</div>
+                    <div class="list-item-image">
+                        <img src="img/65.png" alt="">
+                        <img src="img/66.png" alt="">
+                        <img src="img/67.png" alt="">
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-descript">2. 如果模組尾碼省略，先找同名JS檔再找同名JS資料夾</div>
+                    <div class="list-item-image">
+                        <img src="img/68.png" alt="">
+                        <img src="img/69.png" alt="">
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-descript">3. 如果找到了同名資料夾，找資料夾中的index.js</div>
+                    <div class="list-item-image">
+                        <img src="img/70.png" alt="">
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-descript">4. 如果資料夾中沒有index.js就會去當前資料夾中的package.json文件中查找main選項中的入口檔</div>
+                    <div class="list-item-image">
+                        <img src="img/71.png" alt="">
+                        <img src="img/72.png" alt="">
+                        <img src="img/73.png" alt="">
+                        <img src="img/74.png" alt="">
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-item-descript">5. 如果找指定的入口檔不存在或者沒有指定入口檔就會報錯，模組沒有被找到</div>
+                    <div class="list-item-image">
+                        <img src="img/75.png" alt="">
+                        <img src="img/76.png" alt="">
+                        <img src="img/77.png" alt="">
+                        <img src="img/78.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="topic topic-btn" id="section-part2">二、模組查找規則-當模組沒有路徑且沒有後綴時</div>
+        <div class="box-content section-part2">
+            <div class="topic">二、模組查找規則-當模組沒有路徑且沒有後綴時</div>
+            <div class="sample">
+                <div class="sample-item">require('find')</div>
+            </div>
+            <div class="list">
+                <div class="list-item-descript">1. Node.js會假設它是系統模組</div>
+                <div class="list-item-image">
+                    <img src="img/79.png" alt="">
+                    <img src="img/80.png" alt="">
+                    <img src="img/81.png" alt="">
+                </div>
+                <div class="alert alert-danger">試不出來 ...&gt;_&lt;</div>
+            </div>
+            <div class="list">
+                <div class="list-item-descript">2. Node.js會去node_modules資料夾中</div>
+                <div class="list-item-image">
+                    <img src="img/82.png" alt="">
+                    <img src="img/83.png" alt="">
+                </div>
+            </div>
+            <div class="list">
+                <div class="list-item-descript">3. 首先看是否有該名字的JS檔</div>
+                <div class="list-item-image">
+                    <img src="img/84.png" alt="">
+                </div>
+            </div>
+            <div class="list">
+                <div class="list-item-descript">4. 再看是否有該名字的資料夾</div>
+                <div class="list-item-image">
+                    <img src="img/85.png" alt="">
+                    <img src="img/86.png" alt="">
+                </div>
+            </div>
+            <div class="list">
+                <div class="list-item-descript">5. 如果是資料夾看裡面是否有index.js</div>
+                <div class="list-item-image">
+                    <img src="img/87.png" alt="">
+                </div>
+            </div>
+            <div class="list">
+                <div class="list-item-descript">6. 如果沒有index.js查看該資料夾中的package.json中的main選項確定模組入口檔</div>
+                <div class="list-item-image">
+                    <img src="img/88.png" alt="">
+                    <img src="img/89.png" alt="">
+                    <img src="img/90.png" alt="">
+                    <img src="img/91.png" alt="">
+                </div>
+            </div>
+            <div class="list">
+                <div class="list-item-descript">7. 否則找不到報錯</div>
+                <div class="list-item-image">
+                    <img src="img/92.png" alt="">
+                    <img src="img/93.png" alt="">
+                    <img src="img/94.png" alt="">
+                    <img src="img/95.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

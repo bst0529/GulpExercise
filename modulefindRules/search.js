@@ -1,0 +1,1 @@
+console.log('search.js被執行了......');
